@@ -50,6 +50,12 @@ static NSString *j_fail_code = @"fail";
 }
 - (void)setup:(FlutterMethodCall *)call {
     JSHARELaunchConfig *config = [[JSHARELaunchConfig alloc] init];
+
+    NSString *universalLink = call.arguments[@"universalLink"];
+    if (universalLink) {
+        config.universalLink = universalLink;
+    }
+
     NSString *appKey = call.arguments[@"appKey"];
     if (appKey) {
         config.appKey = appKey;
